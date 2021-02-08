@@ -1,0 +1,235 @@
+Câu hỏi. So sánh sự khác nhau giữa 
+Parallel Processing, Concurrency, and Async Programming
+(https://viblo.asia/p/parallel-processing-concurrency-va-async-programming-OeVKBdj0lkW)
+một ứng dụng có thể đồng thời , nhưng không song song. Điều này có nghĩa là nó xử lý nhiều tác vụ cùng một lúc, nhưng luồng chỉ thực thi một tác vụ tại một thời điểm. Không có việc thực thi song song các tác vụ theo luồng / CPU song song . Một ứng dụng cũng có thể song song nhưng không đồng thời
+
+Đồng thời và song song có hiệu quả giống nguyên tắc như bạn phỏng đoán chính xác, cả hai đều liên quan đến các tác vụ được thực thi đồng thời mặc dù tôi muốn nói rằng các tác vụ song song phải thực sự đa nhiệm, được thực hiện "cùng lúc" trong khi đồng thời có thể có nghĩa là các tác vụ đang chia sẻ luồng thực thi trong khi vẫn có vẻ đang thực thi song song.
+
+Phương thức không đồng bộ không liên quan trực tiếp đến hai khái niệm trước đó, tính không đồng bộ được sử dụng để thể hiện ấn tượng về tác vụ đồng thời hoặc song song nhưng hiệu quả thì một lệnh gọi phương thức không đồng bộ thường được sử dụng cho một quá trình cần thực hiện công việc khác với ứng dụng hiện tại và chúng tôi không không muốn đợi và chặn ứng dụng của chúng tôi đang chờ phản hồi.
+
+Ví dụ: lấy dữ liệu từ cơ sở dữ liệu có thể mất thời gian nhưng chúng tôi không muốn chặn giao diện người dùng của mình chờ dữ liệu. Lệnh gọi không đồng bộ nhận tham chiếu gọi lại và trả về thực thi trở lại mã của bạn ngay sau khi yêu cầu được thực hiện với hệ thống từ xa. Giao diện người dùng của bạn có thể tiếp tục phản hồi người dùng trong khi hệ thống từ xa thực hiện bất kỳ quá trình xử lý nào được yêu cầu, khi nó trả về dữ liệu cho phương thức gọi lại của bạn thì phương thức đó có thể cập nhật giao diện người dùng (hoặc chuyển bản cập nhật đó) nếu thích hợp.
+
++
+Đồng thời là khi hai tác vụ có thể bắt đầu, chạy và hoàn thành trong khoảng thời gian chồng chéo. Song song là khi các nhiệm vụ chạy cùng một lúc theo đúng nghĩa đen. trên bộ xử lý đa lõi.
+
+Đồng thời là thành phần của các quá trình thực thi độc lập, trong khi song song là việc thực hiện đồng thời các phép tính (có thể có liên quan).
+
+Đồng thời là việc xử lý nhiều thứ cùng một lúc. Song song là làm nhiều việc cùng một lúc.
+
+Một ứng dụng có thể đồng thời - nhưng không song song, có nghĩa là nó xử lý nhiều hơn một tác vụ cùng một lúc, nhưng không có hai tác vụ nào được thực thi đồng thời ngay lập tức.
+
+Một ứng dụng có thể song song - nhưng không đồng thời, có nghĩa là nó xử lý nhiều tác vụ con của một tác vụ trong CPU đa lõi cùng một lúc.
+
+Một ứng dụng không thể song song - cũng không đồng thời, có nghĩa là nó xử lý tất cả các tác vụ một cách tuần tự.
+
+Một ứng dụng có thể vừa song song - vừa đồng thời, có nghĩa là nó xử lý đồng thời nhiều tác vụ trong CPU đa lõi cùng một lúc.
+Câu hỏi. Thế nào là các hàm xử lý đồng bộ và xử lý không đồng bộ? 
+
+Ví dụ về lập trình đồng bộ
+2 hàm f1(..) và f2(...) được gọi như sau:
+f1();
+f2();// f2() gọi sau f1()
+đây là gọi đồng bộ.
+
+Ví dụ lập trình không đồng bộ.
+C1:đặt f1() trong 1 luồng, f2() trong 1 luồng (như bài tập 6-10)
+C2: đặt f1() trong 1 timer...
+Câu hỏi. So sánh sự khác nhau giữa: Parallel Processing, Concurrency, and Async Programming
+
+Câu hỏi. Thế nào là 1 hàm timer?
++ Nêu cách thiết lập 1 hàm timer trong C++ trên Windows?
++ Nêu cách thiết lập 1 hàm timer trong C#?
+
++ Bộ Timer để làm gì, cách tạo lập timer?
+Trả lời. 1 công việc được xử lý có tính chu kỳ, ví du 1/1000 giây lại đọc file 1 lần.
+Để làm việc này, cần lập trình hàm cho bộ Timer với chu kỳ 1/1000 giây.
++ Trên PC có thể xử lý timer với chu kỳ là 1/10
+
+Cách tìm code: google 
+www.codeproject.com multi thread console C#  
+code không có winform
+www.codeguru.com multi thread C#
+hoặc: google lập trình thread trong C#
+Tìm code C++, C#
+google: timer C# www.codeproject.com
+google: timer C++ www.codeproject.com
+Tìm code C# thread
+google:  www.codeproject.com C# thread
+
+
+Bài tập 17. Chuyển code bài tập 5 đến 16 sang C# và Java.
+Chạy code và share màn hình
+
+-------------------------------------------------------------------------
+Ví dụ chuyển 1 bài tập từ C sang C#
+https://www.codeproject.com/Articles/1083/Multithreaded-Programming-Using-C
+sing System;
+using System.Threading;
+
+public class MyThread {
+
+        public static void Thread1() {
+                for (int i = 0; i < 10; i++) {
+                        Console.WriteLine("Thread1 {0}", i);
+                }
+        }
+
+        public static void Thread2() {
+                for (int i = 0; i < 10; i++) {
+                        Console.WriteLine("Thread2 {0}", i);
+                }
+        }
+}
+
+public class MyClass {
+
+        public static void Main() {
+                Console.WriteLine("Before start thread");
+
+                Thread tid1 = new Thread(new ThreadStart(MyThread.Thread1 ) );
+                Thread tid2 = new Thread(new ThreadStart(MyThread.Thread2 ) );
+
+                tid1.Start();
+                tid2.Start();
+        }
+}000 giây không?
++ Trên C++, C#, Java chạy trên hệ điều hành Windows, tạo hàm xử lý timer như thế nào?
+
+Java:
+using System.Threading;
+
+public class (NameProject)
+    {
+        public static int i = 0;
+        public static void timer_1(object o)
+        {
+            Console.WriteLine("Timer " + DateTime.Now, i);
+            i++;
+        }
+        static void Main(string[] args)
+        {
+            Timer t = new Timer(timer_1, null, 0, 100);
+            Console.ReadLine();
+        }
+    }
+C#:
+https://www.codeproject.com/Articles/1083/Multithreaded-Programming-Using-C
++ Chay VS.NET
++ Tạo new project C# kiểu ứng dụng console
++ Copy code từ https://www.codeproject.com/Articles/1083/Multithreaded-Programming-Using-C
++ Dịch và chạy.
+Sau đó nhớ lệnh tạo thread: Thread tid1 = new Thread(new ThreadStart(MyThread.Thread1 ) );
+
+Bài tập 18.
+18a. Viết 1 hàm timer trong C++ trên Windows :
+chu kỳ xử lý 10ms
+mỗi 10ms in 1 số ngẫu nhiên lên màn hình.
+18b. Viết 1 hàm timer trong C# :
+chu kỳ xử lý 1s
+mỗi 1s in 1 giờ hệ thống lên màn hình.
+18c. Viết 1 hàm timer trong Java :
+chu kỳ xử lý 100ms
+mỗi 100ms in dung lượng bộ nhớ còn lại của máy tính lên màn hình.
+
+-------------------------------------------------------------------------------------------------------------
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class Main {
+
+    static int Max_Loop = 100; // MACRO
+    static int count = 0; // Biến đếm
+
+
+    // Hàm setup timer
+    public static void setup_timer(){
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println(new Date().toString());
+            }
+        };
+        long delay = 1000;
+        Timer timer = new Timer("Timer");
+        timer.schedule(timerTask, 0, delay);
+    }
+
+    // Hàm main
+    public static void main(String args[]){
+        /*
+        t1 = new Thread(r1);
+        t2 = new Thread(r2);
+        t1.start();
+        t2.start();
+        * */
+        setup_timer();
+
+    }
+    /*
+    * t1 : Biến tham chiếu đối tượng Thread 1
+    * t2 : Biến tham chiếu đối tượng Thread 2
+    */
+    static Thread t1;
+    static Thread t2;
+
+    /*
+     * r1 : Biến tham chiếu Interface 1 chạy luồng 1
+     * r2 : Biến tham chiếu Interface 1 chạy luồng 2
+     */
+    static Runnable r1 = new Runnable() {
+        @Override
+        public void run() {
+            for(int i = 0 ; i < Max_Loop ; i++){
+                count ++;
+                System.out.println("In thread 1, count = " + count);
+            }
+        }
+    };
+    static Runnable r2 = new Runnable() {
+        @Override
+        public void run() {
+            for(int i = 0 ; i < Max_Loop ; i++){
+                count ++;
+                System.out.println("In thread 2, count = " + count);
+            }
+        }
+    };
+}
+
+---------------------------------------------------------------------------------------------------------
+Bài tập. Viết 2 CT, CT1 theo chu kỳ 10ms thì tạo ra 1 số ngẫu nhiên và ghi lên file vd.dat (khi ghi xóa nội dung cũ), CT2 theo chu kỳ  5ms thì đọc file vd.dat, và hiển thị số nguyên đọc được lên màn hình.
+Bài tập. Học cách viết CT2 trên, viết một timer dựa trên thread, cứ 5ms tạo ra 1 số ngẫu nhiên và hiển thị lên màn hình.
+Đề 1 (thread)
+Lập trình trên ngôn ngữ tùy chọn C++/C#/Java với yêu cầu sau:
+Viết chương trình 1.
+a (2đ). Viết 1 hàm gồm 1 vòng lặp nhập 1 kí tự từ bàn phím, ghi kí tự lên 1 file  dulieu.txt. Nếu kí tự là '!' thì thoát khỏi vòng lặp. 
+b. (4đ) Đặt hàm vào 1 luồng, dịch chương trình CT1.
+Viết chương trình 2.
+c (2đ). Viết 1 hàm có 1 vòng lặp vô hạn đọc kí tự ở file dulieu.txt. Đọc được kí tự thì đóng file. Hiển thị kí tự. Nếu kí tự đọc được là '!' thì thoát vòng lặp. 
+d. (4đ) Đặt hàm vào 1 luồng, dịch chương trình CT2.
+Chạy CT1 và CT2 để thấy hiệu ứng trao đổi dữ liệu.
+
+Đề 2 (hàm xử lý không đồng bộ):
+Lập trình trên ngôn ngữ tùy chọn (C/C#/Java) với yêu cầu sau:
+Viết chương trình gồm 2 tác vụ hoạt độngkhông đồng bộ như sau:
+Task1:
+a (2đ). Viết 1 hàm gồm 1 vòng lặp nhập 1 kí tự từ bàn phím, ghi kí tự lên 1 file  dulieu.txt. Nếu kí tự là '!' thì thoát khỏi vòng lặp. 
+b. (4đ) Đặt hàm vào 1 timer cứ 5ms (1ms=1/1000 giây) thực hiện 1 lần.
+Task2
+c (2đ). Viết 1 hàm có 1 vòng lặp vô hạn đọc kí tự ở file dulieu.txt. Đọc được kí tự thì đóng file. Hiển thị kí tự. Nếu kí tự đọc được là '!' thì thoát vòng lặp. 
+d. (4đ) Đặt hàm vào 1 timer cứ 10ms thực hiện 1 lần..
+Ghi chú: có thể sử dụng timer dựa trên thread để cứ 1 lần chu kỳ lại "nhả" CPU cho hệ điều hành hoặc sử dụng timer được hỗ trợ sẵn bởi môi trường lập trình.
+
+Đề 3 (timer):
+Lập trình trên ngôn ngữ tùy chọn (C/C#/Java) với yêu cầu sau:
+Viết chương trình gồm 2 timer hoạt động như sau:
+timer1:
+a (2đ). Viết 1 hàm gồm 1 vòng lặp nhập 1 kí tự từ bàn phím, lưu vào 1 biến tổng thể c, hiển thị kí tự. Nếu kí tự là '!' thì thoát khỏi vòng lặp. 
+b. (4đ) Đặt hàm vào 1 timer cứ 7ms (1ms=1/1000 giây) thực hiện 1 lần.
+timer2
+c (2đ). Viết 1 hàm có 1 vòng lặp phát ra tiếng beep, nếu biến tổng thể c là '!' thì thoát vòng lặp. 
+d. (4đ) Đặt hàm vào 1 timer cứ 10ms thực hiện 1 lần..
+Chạy chương trình để xem hiệu ứng timer1, timer2.
+
+Ghi chú: có thể sử dụng timer dựa trên thread để cứ 1 lần chu kỳ lại "nhả" CPU cho hệ điều hành hoặc sử dụng timer được hỗ trợ sẵn bởi môi trường lập trình.
