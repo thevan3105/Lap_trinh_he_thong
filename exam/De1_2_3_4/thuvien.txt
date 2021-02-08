@@ -1,0 +1,5 @@
+libadvapi32.a, libws2_32.a, libwsock32.a
+C:\Program Files (x86)\Dev-Cpp\MinGW64\x86_64-w64-mingw32\lib
+libadvapi32.a
+libws2_32.a
+libwsock32.a
